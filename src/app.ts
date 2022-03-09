@@ -4,14 +4,16 @@ import express from 'express'
 import { buildSchema } from 'type-graphql'
 import { getConnection } from './connection'
 import { CreateAkumaNoMiType } from './resolvers/CreateAkumaNoMiType'
+import { DeleteAkumaNoMiType } from './resolvers/DeleteAkumaNoMiType'
 import { GetAkumaNoMiTypes } from './resolvers/GetAkumaNoMiTypes'
+import { UpdateAkumaNoMiType } from './resolvers/UpdateAkumaNoMiType'
 
 
 const main = async () => {
 	const connection = await getConnection()
 
 	const schema = await buildSchema({
-		resolvers: [CreateAkumaNoMiType, GetAkumaNoMiTypes]
+		resolvers: [CreateAkumaNoMiType, GetAkumaNoMiTypes, DeleteAkumaNoMiType, UpdateAkumaNoMiType]
 	})
 
 	const server = new ApolloServer({

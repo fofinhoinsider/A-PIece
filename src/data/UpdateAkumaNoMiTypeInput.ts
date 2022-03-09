@@ -2,9 +2,12 @@ import { Field, InputType } from "type-graphql"
 import { AkumaNoMiType } from "../entity/AkumaNoMiType"
 
 @InputType()
-export class CreateAkumaNoMiTypeInput implements Partial<AkumaNoMiType> {
+export class UpdateAkumaNoMiTypeInput implements Partial<AkumaNoMiType> {
     @Field()
-    name: string
+    id: number
+    
+    @Field()
+    name?: string
 
     @Field()
     description?: string
